@@ -57,8 +57,6 @@
     "start": "npm run server:dev",
       "start:hmr": "npm run server:dev:hmr",
 
-    "postinstall": "npm run ./node_modules/typings/dist/typings -- install",
-
       "preversion": "npm test",
     "version": "npm run build",
       "postversion": "git push && git push --tags"
