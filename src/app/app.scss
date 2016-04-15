@@ -1,0 +1,147 @@
+@import 'common/styles/styles';
+
+.navbar {
+  background: $nav-bg-color;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  max-height: 4rem;
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+  &:hover {
+    max-height: 4rem;
+  }
+
+  & .full-screen-menu {
+    display: none;
+
+  }
+
+  & .mobile-menu {
+    display: block;
+    & .nav-link {
+      background: url('assets/img/icon-menu-lightblue.png') no-repeat scroll left center transparent;
+      background-size: 18px 15px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      float: left;
+      color: $text-color-grey;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+      padding: 4px 0 4px 22px;
+      margin-top: 2px;
+      margin-left: 2%;
+      border: none;
+    }
+
+    & .dropdown-menu {
+      border: none;
+      border-radius: initial;
+      background: $nav-bg-color;
+      box-shadow: $box-shadow;
+      position: absolute;
+      top: 2.9rem;
+      left: 0;
+      & li a {
+        color: $text-color-grey;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  & .navbar-brand {
+    float: right;
+    background: url('/assets/img/logo.png') no-repeat scroll left center transparent;
+    height: 2.5rem;
+    width: 2.75rem;
+    background-size: cover;
+  }
+}
+
+header {
+  height: 300px;
+  & .header-inner {
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    background: url('/assets/img/honors-college-cinemagraph-03.gif') no-repeat scroll left center transparent;
+    background-size: cover;
+  }
+}
+
+main {
+  position: relative;
+}
+
+footer {
+  bottom: 0;
+  position: absolute;
+}
+
+@media (min-width: map-get($grid-breakpoints, 'md')) {
+  .navbar {
+    background: $nav-bg-color-transparent;
+    & .full-screen-menu {
+      display: block;
+    }
+
+    & .mobile-menu {
+      display: none;
+    }
+
+    & .navbar-brand {
+      float: left;
+      transition: all .2s ease-in-out;
+      transform: scale(1.1);
+    }
+
+    &.scrolled {
+      max-height: 2rem;
+      & .full-screen-menu .nav-item .nav-link {
+        padding-top: 0;
+        font-size: .75rem;
+      }
+      & .navbar-brand {
+        height: 1.1rem;
+        width: 1.2rem;
+      }
+    }
+  }
+
+  header {
+    height: 100vh;
+    .header-inner {
+      position: fixed;
+      z-index: 0;
+      background-position: center 10%;
+    }
+  }
+
+  main {
+    padding-bottom: 3rem;
+  }
+
+  main, footer {
+    position: relative;
+    z-index: 1;
+    background-color: #f3f7fa;
+    background-size: cover;
+  }
+
+  footer {
+    background-color: #1b3244;
+    color: white;
+  }
+}
+

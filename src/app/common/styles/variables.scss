@@ -1,0 +1,47 @@
+@import '~bootstrap/scss/variables';
+
+
+/********************************
+ *
+ *      Color definitions
+ *
+ *******************************/
+$nav-bg-color-transparent: rgba(0, 68, 124, 0.5);
+$nav-bg-color: #00447c;
+$text-color-grey: #f3f6f9;
+$box-shadow: 3px 3px 7px #888888;
+
+/********************************
+ *
+ * Sizes / Dimensions
+ *
+ *******************************/
+
+$page-width: 1310px;
+$page-margin: 0 10px;
+$page-margin-large-width: 0 auto;
+
+$mobile-portrait-width: 414px;
+$mobile-landscape-width: 578px;
+$tablet-portrait-width: 768px;
+$tablet-landscape-width: 1024px;
+
+$iphone-5-breakpoint: 320px;
+
+$mobile-down-breakpoint: "only screen and (max-width: #{$mobile-portrait-width}) and (orientation: portrait), only screen and (max-width: #{$mobile-landscape-width}) and (orientation: landscape)";
+$tablet-down-breakpoint: "only screen and (max-width: #{$tablet-portrait-width}) and (orientation: portrait), only screen and (max-width: #{$tablet-landscape-width}) and (orientation: landscape)";
+$tablet-only-breakpoint: "only screen and (min-width: #{$mobile-portrait-width}) and (max-width: #{$tablet-portrait-width}) and (orientation: portrait), only screen and (min-width: #{$mobile-landscape-width}) and (max-width: #{$tablet-landscape-width}) and (orientation: landscape)";
+$tablet-up-breakpoint: "only screen and (min-width: #{$mobile-portrait-width}) and (orientation: portrait), only screen and (min-width: #{$mobile-landscape-width}) and (orientation: landscape)";
+$desktop-up-breakpoint: "only screen and (min-width: #{$tablet-portrait-width}) and (orientation: portrait), only screen and (min-width: #{$tablet-landscape-width}) and (orientation: landscape)";
+
+$mobile-down-portrait-breakpoint: "only screen and (max-width: #{$mobile-portrait-width}) and (orientation: portrait)";
+$tablet-down-portrait-breakpoint: "only screen and (max-width: #{$tablet-portrait-width}) and (orientation: portrait)";
+$tablet-only-portrait-breakpoint: "only screen and (min-width: #{$mobile-portrait-width}) and (max-width: #{$tablet-portrait-width}) and (orientation: portrait)";
+$tablet-up-portrait-breakpoint: "only screen and (min-width: #{$mobile-portrait-width}) and (orientation: portrait)";
+$desktop-up-portrait-breakpoint: "only screen and (min-width: #{$tablet-portrait-width}) and (orientation: portrait)";
+
+$mobile-down-landscape-breakpoint: "only screen and (max-width: #{$mobile-landscape-width}) and (orientation: landscape)";
+$tablet-down-landscape-breakpoint: "only screen and (max-width: #{$tablet-landscape-width}) and (orientation: landscape)";
+$tablet-only-landscape-breakpoint: "only screen and (min-width: #{$mobile-landscape-width}) and (max-width: #{$tablet-landscape-width}) and (orientation: landscape)";
+$tablet-up-landscape-breakpoint: "only screen and (min-width: #{$mobile-landscape-width}) and (orientation: landscape)";
+$desktop-up-landscape-breakpoint: "only screen and (min-width: #{$tablet-landscape-width}) and (orientation: landscape)";

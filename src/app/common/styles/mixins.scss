@@ -1,0 +1,34 @@
+@import 'variables';
+@import '~bootstrap/scss/mixins/grid';
+@import '~bootstrap/scss/mixins';
+
+@mixin make-column($xsmall, $small,$medium, $large) {
+  padding: 0 1rem;
+  @media (max-width:34em){
+    @include make-col-span($xsmall)
+  }
+  @media (min-width:34.01em) and (max-width: 48em){
+    @include make-col-span($small)
+  }
+  @media (min-width:48.01em) and (max-width: 62em){
+    @include make-col-span($medium)
+  }
+  @media (min-width:62.01em){
+    @include make-col-span($large)
+  }
+};
+
+@mixin make-column-offset($xsmall, $small,$medium, $large) {
+  @media (max-width:34em){
+    @include make-col-offset($xsmall)
+  }
+  @media (min-width:34.1em) and (max-width: 48em){
+    @include make-col-offset($small)
+  }
+  @media (min-width:48.1em) and (max-width: 62em){
+    @include make-col-offset($medium)
+  }
+  @media (min-width:62.1em){
+    @include make-col-offset($large)
+  }
+}

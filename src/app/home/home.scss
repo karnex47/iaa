@@ -1,0 +1,30 @@
+@import "../common/styles/mixins";
+
+section {
+  @include make-column(12, 12, 12, 12);
+  display: inline-block;
+  &.quote {
+    & .inner-section {
+      padding-top: 1rem;
+      height: 10rem;
+      & img {
+        float: left;
+        height: 100%;
+        padding: 0 1rem;
+      }
+      & blockquote {
+        margin: 1rem 0;
+        padding: 0.7rem 0;
+        background-color: #315271;
+        color: white;
+        min-height: 7rem;
+        & p {
+          padding: 0 0.5rem;
+        }
+      }
+    }
+    &.even .inner-section img {
+      float: right;
+    }
+  }
+}
