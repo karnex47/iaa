@@ -1,26 +1,34 @@
 <div [class]="classes" (window:scroll)="onScroll($event)">
   <nav class="navbar" [class.scrolled]="isScrolled()">
-    <a class="navbar-brand" [routerLink]=" ['Index'] "><span class="sr-only">{{'navigation.home' | translate}}</span></a>
+    <a class="navbar-brand" [routerLink]=" ['Home'] "><span class="sr-only">{{'navigation.home' | translate}}</span></a>
     <div class="mobile-menu" dropdown keyboardNav="true">
-      <button id="mobile-menu-nav" class="nav-link" dropdownToggle>Menu</button>
+      <button id="mobile-menu-nav" class="nav-link" dropdownToggle>{{'nav.menu' | translate}}</button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="mobile-menu-nav">
         <li role="menu-item" router-active [class.active]="isActive(['Home'])">
-          <a class="dropdown-item" [routerLink]=" ['Home'] ">Home</a>
+          <a class="dropdown-item" [routerLink]=" ['Home'] ">{{'nav.home' | translate}}</a>
+        </li>
+        <li role="menu-item" router-active [class.active]="isActive(['About'])">
+          <a class="dropdown-item" [routerLink]=" ['About'] ">{{'nav.about' | translate}}</a>
+        </li>
+        <li role="menu-item" router-active [class.active]="isActive(['Dojos'])">
+          <a class="dropdown-item" [routerLink]=" ['Dojos'] ">{{'nav.dojos' | translate}}</a>
         </li>
       </ul>
     </div>
     <div class="full-screen-menu">
       <ul class="nav navbar-nav">
         <li router-active class="nav-item" [class.active]="isActive(['Home'])">
-          <a class="nav-link" [routerLink]=" ['Home'] ">Home</a>
+          <a class="nav-link" [routerLink]=" ['Home'] ">{{'nav.home' | translate}}</a>
+        </li>
+        <li router-active class="nav-item" [class.active]="isActive(['About'])">
+          <a class="nav-link" [routerLink]=" ['About'] ">{{'nav.about' | translate}}</a>
+        </li>
+        <li router-active class="nav-item" [class.active]="isActive(['Dojos'])">
+          <a class="nav-link" [routerLink]=" ['Dojos'] ">{{'nav.dojos' | translate}}</a>
         </li>
       </ul>
     </div>
   </nav>
-  <header>
-    <div class="header-inner"></div>
-  </header>
-
   <main>
     <router-outlet></router-outlet>
   </main>

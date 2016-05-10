@@ -1,7 +1,38 @@
+
 {
+  "nav": {
+    "menu": "Menu",
+    "home": "Home",
+    "about": "About",
+    "dojos": "Dojos"
+  },
   "home": {
     "billSosa": "Founded by Bill Sosa Sensei in 1995, and headquartered in Dallas, Texas, USA, the International Aikido Association consists of affiliated dojos in the states and Mexico. IAA provides a non-competitive, family-type atmosphere at its dojos, observing traditional values of courtesy and respect.",
     "ueshiba": "Aikido is a martial art founded by Morihei Ueshiba in Japan in the mid-1920's. It has elements of Jujitsu and Judo. Aikido translated means the path of harmony.",
     "aboutAikido" : "We learn to blend with, rather than go against, the force of an attack. The idea is to forget the self, and follow the opponent's movement. In this way, the opponent is defeated by blending with and using his energy."
+  },
+  "about": {
+    "founder": {
+      "title": "About the Founder",
+      "paragraphs": [
+        "Mr. Baldemar Sosa began his path in Aikido in his early thirties. After being involved in other forms of sports and various martial arts, he understood from the very beginning the many benefits Aikido had to offer.",
+        "Being interested in studies pertaining to the mind but also of a spiritual nature, he felt Aikido offered both. Sensei Sosa, as he was called, felt Aikido training presented a way to acquire more physical energy and to harness it in a proper and advantageous manner. He also believed that same energy could be developed in training and utilized in everyday living.",
+        "He understood the \"Ki\"principal emphasized in Aikido and learned to use it effectively. Because of the spiritual nature and its principles of peaceful resolution, Mr. Sosa believed that many conflicts could be resolved if those concepts were practiced in earnest. He also knew that if Aikido techniques were learned and mastered, Aikido would prove to be a very effective means of self-defense.",
+        "When practiced and executed by learned practitioners, Aikido is a very fluid and graceful martial art. It is an art that can be adapted to the size of the person. An individual with a large stature will execute a technique much differently than a person with a small stature who for instance will use the technique in advantage to his/her size. Therefore the technique of each individual will look completely different but will be just as effective.",
+        "Along with this knowledge of form and strategy, Sensei Sosa had the benefit of learning from excellent teachers during his study of Aikido. Being of average height and size he presented his Aikido techniques smoothly and effortlessly. He practiced and taught the art in a practical manner that can be useful in everyday life situations while still maintaining the Aikido principles.",
+        "Sensei Sosa presented and spread Aikido to many groups across the United States and continued his teaching until his death in 2002. The dojo is now under the direction of his eldest son, Rick Sosa whose Aikido teachings began with his father during his early childhood."
+      ]
+    },
+    "chiefInstructor": {
+      "title": "About the Chief Instructor",
+      "paragraphs": [
+        "The chief instructor for International Aikido Association is the eldest son of the Founder, Baldemar (Bill) Sosa Sensei. Rick Sosa Sensei, 6th Dan, has practiced Aikido since a very early age when his father introduced him to the art. Mr. Bill Sosa and son trained with the same teachers, Isao Takahashi Sensei and Koichi Tohei Sensei in the early years of their Aikido involvement.",
+        "Rick Sosa Sensei also practiced Aikido in Japan during his military career and has extensive experience in other martial arts, namely Thai Boxing and Kali-Escrima.",
+        "His keen eye and skillful technique give him the advantage in observing and redirecting the opponent's energy effectively.His involvement and dedication to Aikido helps him to present the art in a practical way while maintaining the values of courtesy and respect.",
+        "Mr Sosa is responsible for bringing Aikido, Thai Boxing and Kali to the Monterey, Mexico community and has affiliates there.",
+        "He is the director for the state of Texas and Mexico of the Thai Boxing Assoc. USA/Mexico, of which master Surachai \"Chai\" Sirisute is president.",
+        "Aikido training is the perfect form of exercise. As well as affording one the study of day to day self-defense, it will keep the mind and the body working as a unit. The dojo provides a comfortable environment in which one can go at his/her own pace. Whatever your age or reason for study, with consistent training, a student will transform his/her physical and mental abilities along with self-confidence."
+      ]
+    }
   }
 }

@@ -8,8 +8,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var utils_1 = require('../common/utils/utils');
-var app_service_1 = require("../app.service");
+var utils_1 = require('../utils/utils');
+var app_service_1 = require("../../app.service");
 var _ = require('lodash');
 var TranslatePipe = (function () {
     function TranslatePipe(appState) {
@@ -18,7 +18,7 @@ var TranslatePipe = (function () {
     TranslatePipe.prototype.transform = function (value, args) {
         var _this = this;
         if (!this.translationFetch) {
-            this.translationFetch = utils_1.getTranslations(this.appState.get('lang') || 'en_US')
+            this.translationFetch = utils_1.getTranslations(_.isEmpty(this.appState.get('lang')) ? 'en_US' : this.appState.get('lang'))
                 .then(function (translations) { return _this.translations = translations; });
         }
         if (this.translations) {
@@ -30,10 +30,9 @@ var TranslatePipe = (function () {
             name: 'translate',
             pure: false
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof app_service_1.AppState !== 'undefined' && app_service_1.AppState) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [app_service_1.AppState])
     ], TranslatePipe);
     return TranslatePipe;
-    var _a;
 })();
 exports.TranslatePipe = TranslatePipe;
 //# sourceMappingURL=translate-pipe.js.map

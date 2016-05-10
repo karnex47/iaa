@@ -1,30 +1,99 @@
 @import "../common/styles/mixins";
 
-section {
-  @include make-column(12, 12, 12, 12);
-  display: inline-block;
-  &.quote {
-    & .inner-section {
-      padding-top: 1rem;
-      height: 10rem;
-      & img {
-        float: left;
-        height: 100%;
-        padding: 0 1rem;
+.header {
+  height: 300px;
+  & .header-inner {
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    background: url('/assets/img/honors-college-cinemagraph-02.gif') no-repeat scroll left center transparent;
+    background-size: cover;
+    .logo {
+      position: absolute;
+      img {
+        width: 40%;
       }
-      & blockquote {
-        margin: 1rem 0;
-        padding: 0.7rem 0;
-        background-color: #315271;
-        color: white;
-        min-height: 7rem;
-        & p {
-          padding: 0 0.5rem;
-        }
-      }
-    }
-    &.even .inner-section img {
-      float: right;
     }
   }
 }
+
+.home {
+  position: relative;
+  z-index: 1;
+  background-color: #f3f7fa;
+  background-size: cover;
+  background: url("assets/img/flower-bg.jpg") repeat-x;
+  .welcome {
+    background: url("assets/img/intro-launch-bg.jpg") no-repeat scroll center center #e8f1f9;
+    text-align: center;
+    padding: 1rem;
+  }
+  section {
+    @include make-column(12, 12, 12, 12);
+    display: inline-block;
+    padding: 0;
+    &.quote {
+      & .inner-section {
+        height: 10rem;
+        & img {
+          float: right;
+          height: 100%;
+          padding-left: 0.7rem;
+        }
+        & blockquote {
+          color: white;
+          min-height: 10rem;
+          & p {
+            padding: 0.5rem 0.5rem;
+          }
+        }
+      }
+      &.even .inner-section img {
+        float: left;
+        padding-left: 0;
+        padding-right: 0.7rem;
+      }
+
+      &.ueshiba {
+        blockquote {
+          color: #00447c !important;
+        }
+      }
+
+      &.bill-sosa {
+        blockquote {
+          background: #315271;
+        }
+      }
+
+      &.learn blockquote {
+        color: #00447c !important;
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, 'md')) {
+  .header {
+    height: 100vh;
+    .header-inner {
+      position: fixed;
+      z-index: 0;
+      background-position: center 10%;
+    }
+  }
+
+  .home {
+    section {
+      &.bill-sosa {
+        .inner-section img {
+          height: 120%;
+          position: relative;
+          top: -10%;
+        }
+      }
+    }
+  }
+}
+

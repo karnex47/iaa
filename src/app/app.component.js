@@ -13,8 +13,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var common_1 = require('angular2/common');
-var router_active_1 = require('./directives/router-active');
-var home_1 = require('./home/home');
+var router_active_directive_1 = require('./router-active/router-active.directive');
+var home_component_1 = require('./home/home.component');
 var core_2 = require("angular2/core");
 var bootstrap_1 = require("angular2/bootstrap");
 var translate_pipe_1 = require("./common/directives/translate-pipe");
@@ -26,13 +26,15 @@ var _ = require('lodash');
 var config_1 = require('./common/config');
 var common_2 = require("angular2/common");
 var ng2_bootstrap_1 = require("ng2-bootstrap/ng2-bootstrap");
+var app_service_1 = require("./app.service");
 /*
  * App Component
  * Top Level Component
  */
 var App = (function () {
-    function App(router) {
+    function App(router, appState) {
         this.router = router;
+        this.appState = appState;
         this.imageUrl = config_1.getLocalUrl('images');
         this.angularclassLogo = 'assets/img/angularclass-avatar.png';
         this.url = 'https://twitter.com/AngularClass';
@@ -59,23 +61,21 @@ var App = (function () {
         core_1.Component({
             selector: 'app',
             providers: common_1.FORM_PROVIDERS.slice(),
-            directives: router_1.ROUTER_DIRECTIVES.concat([router_active_1.RouterActive, common_2.CORE_DIRECTIVES, ng2_bootstrap_1.DROPDOWN_DIRECTIVES]),
+            directives: router_1.ROUTER_DIRECTIVES.concat([router_active_directive_1.RouterActive, common_2.CORE_DIRECTIVES, ng2_bootstrap_1.DROPDOWN_DIRECTIVES]),
             pipes: [translate_pipe_1.TranslatePipe],
             styles: [require('./app.scss')],
             template: require('./app.html'),
             encapsulation: core_2.ViewEncapsulation.None
         }),
         router_1.RouteConfig([
-            { path: '/', component: home_1.Home, name: 'Index' },
-            { path: '/home', component: home_1.Home, name: 'Home' },
-            // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-            { path: '/about', loader: function () { return require('es6-promise!./about/about')('About'); }, name: 'About' },
+            { path: '/', component: home_component_1.Home, name: 'Index' },
+            { path: '/home', component: home_component_1.Home, name: 'Home' },
             { path: '/**', redirectTo: ['Index'] }
         ]), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppState])
     ], App);
     return App;
 })();
 exports.App = App;
-bootstrap_1.bootstrap(App, [translate_pipe_1.TranslatePipe, router_2.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS]);
+bootstrap_1.bootstrap(App, [translate_pipe_1.TranslatePipe, router_2.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, app_service_1.AppState]);
 //# sourceMappingURL=app.component.js.map

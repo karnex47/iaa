@@ -1,0 +1,16 @@
+<div auto-collapse class="about">
+  <div class="about-container founder">
+    <div class="header">
+      <img src="assets/img/bill-sosa-founder.jpg" />
+      <h2>{{'about.founder.title' | translate}}</h2>
+    </div>
+    <article [innerHTML]="'about.founder.paragraphs' | translate | paragraphTransform"></article>
+  </div>
+  <div class="about-container instructor">
+    <div class="header">
+      <img src="assets/img/rick-sosa-instructor.jpg" />
+      <h2>{{'about.chiefInstructor.title' | translate}}</h2>
+    </div>
+    <article [innerHTML]="'about.chiefInstructor.paragraphs' | translate | paragraphTransform"></article>
+  </div>
+</div>

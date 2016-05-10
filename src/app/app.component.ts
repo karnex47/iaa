@@ -7,6 +7,7 @@ import {FORM_PROVIDERS} from 'angular2/common';
 
 import {RouterActive} from './router-active/router-active.directive';
 import {Home} from './home/home.component';
+import {About} from './about/about.component';
 import {ViewEncapsulation} from "angular2/core";
 import {bootstrap} from "angular2/bootstrap";
 import {TranslatePipe} from "./common/directives/translate-pipe";
@@ -19,7 +20,7 @@ const _ = require('lodash');
 import {getLocalUrl} from './common/config';
 import {CORE_DIRECTIVES} from "angular2/common";
 import {DROPDOWN_DIRECTIVES} from "ng2-bootstrap/ng2-bootstrap";
-import {AppState} from "./app.service";
+import {Dojos} from "./dojos/dojos.component";
 
 
 
@@ -37,9 +38,9 @@ import {AppState} from "./app.service";
   encapsulation: ViewEncapsulation.None
 })
 @RouteConfig([
-  { path: '/', component: Home, name: 'Index' },
-  { path: '/home', component: Home, name: 'Home' },
-  { path: '/**', redirectTo: ['Index'] }
+  { path: '/', component: Home, name: 'Home' },
+  { path: '/about', component: About, name: 'About' },
+  { path: '/dojos', component: Dojos, name: 'Dojos'}
 ])
 export class App {
   imageUrl = getLocalUrl('images');
@@ -47,8 +48,8 @@ export class App {
   url = 'https://twitter.com/AngularClass';
   scrolled = false;
   lastScrolledPosition = 0;
-  classes = classNames(_.pick(bowser, 'mobile', 'chrome', 'firefox', 'msie', 'msedge', 'android', 'ios', 'safari', 'opera', 'mac', 'windows', 'windowsphone', 'linux', 'chromeos'))
-  constructor(public router: Router, public appState: AppState) {}
+  classes = classNames(_.pick(bowser, 'mobile', 'chrome', 'firefox', 'msie', 'msedge', 'android', 'ios', 'safari', 'opera', 'mac', 'windows', 'windowsphone', 'linux', 'chromeos'));
+  constructor(public router: Router) {}
 
   isActive(instruction: any[]): boolean {
     return this.router.isRouteActive(this.router.generate(instruction));
@@ -68,5 +69,3 @@ export class App {
     this.lastScrolledPosition = window.scrollY;
   }
 }
-
-bootstrap(App, [TranslatePipe, ROUTER_PROVIDERS, HTTP_PROVIDERS, AppState]);
