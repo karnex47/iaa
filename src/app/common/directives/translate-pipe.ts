@@ -1,6 +1,8 @@
 import {Pipe, PipeTransform} from 'angular2/core';
 import {getTranslations} from '../utils/utils';
 import {Injectable} from "angular2/core";
+import {AppState} from "../../app.service";
+import {NgZone} from "angular2/core";
 
 const _ = require('lodash');
 
@@ -12,16 +14,21 @@ const _ = require('lodash');
 export class TranslatePipe implements PipeTransform {
   private translations: any;
   private translationFetch: Promise<any>;
+  private currentLang: string;
 
-  constructor() {}
+  constructor(public appState: AppState, public zone: NgZone) {}
 
-  transform(value:string, args:string[]) : any {
-    if(!this.translationFetch) {
-      this.translationFetch = getTranslations('en_US')
-        .then(translations => this.translations = translations)
+  transform(key:string, args:string[]) : any {
+    if(this.currentLang !== this.appState.get('lang')) {
+      this.currentLang = _.isEmpty(this.appState.get('lang'))?'en_US':this.appState.get('lang');
+      getTranslations(this.currentLang)
+        .then(translations => {
+          this.translations = translations;
+          this.zone.run(() => {});
+        })
     }
     if(this.translations) {
-      return _.get(this.translations, value, false) || value;
+      return _.get(this.translations, key, key);
     }
   }
 }

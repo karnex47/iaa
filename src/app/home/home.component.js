@@ -8,7 +8,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var common_1 = require('angular2/common');
 var translate_pipe_1 = require("../common/directives/translate-pipe");
 var Home = (function () {
     function Home() {
@@ -17,7 +16,6 @@ var Home = (function () {
         core_1.Component({
             selector: 'home',
             providers: [],
-            directives: common_1.FORM_DIRECTIVES.slice(),
             pipes: [translate_pipe_1.TranslatePipe],
             styles: [require('./home.scss')],
             template: require('./home.html')

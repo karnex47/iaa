@@ -8,42 +8,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-/*
- * We're loading this component asynchronously
- * We are using some magic with es6-promise-loader that will wrap the module with a Promise
- * see https://github.com/gdi2290/es6-promise-loader for more info
- */
-console.log('`About` component loaded asynchronously');
+var translate_pipe_1 = require("../common/directives/translate-pipe");
+var auto_collapse_directive_1 = require("./directives/auto-collapse.directive");
+var paragraph_transform_pipe_1 = require("./pipes/paragraph-transform.pipe");
 var About = (function () {
     function About() {
     }
-    About.prototype.ngOnInit = function () {
-        console.log('hello `About` component');
-        // static data that is bundled
-        // var mockData = require('assets/mock-data/mock-data.json');
-        // console.log('mockData', mockData);
-        // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
-        // this.asyncDataWithWebpack();
-    };
-    About.prototype.asyncDataWithWebpack = function () {
-        // you can also async load mock data with 'es6-promise-loader'
-        // you would do this if you don't want the mock-data bundled
-        // remember that 'es6-promise-loader' is a promise
-        // var asyncMockDataPromiseFactory = require('es6-promise!assets/mock-data/mock-data.json');
-        // setTimeout(() => {
-        //
-        //   let asyncDataPromise = asyncMockDataPromiseFactory();
-        //   asyncDataPromise.then(json => {
-        //     console.log('async mockData', json);
-        //   });
-        //
-        // });
-    };
     About = __decorate([
         core_1.Component({
             selector: 'about',
-            styles: ["\n    h1 {\n      font-family: Arial, Helvetica, sans-serif\n    }\n  "],
-            template: "\n  <md-card>\n    <h1>\n      patrick@AngularClass.com\n    </h1>\n  </md-card>\n\n  "
+            styles: [require('./about.scss')],
+            template: require('./about.html'),
+            pipes: [translate_pipe_1.TranslatePipe, paragraph_transform_pipe_1.ParagraphTransform],
+            directives: [auto_collapse_directive_1.AutoCollapse]
         }), 
         __metadata('design:paramtypes', [])
     ], About);

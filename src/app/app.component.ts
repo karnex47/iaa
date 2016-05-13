@@ -8,9 +8,10 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {RouterActive} from './router-active/router-active.directive';
 import {Home} from './home/home.component';
 import {About} from './about/about.component';
+import {Dojos} from "./dojos/dojos.component";
+import {ChangeLang} from './common/components/change-lang/change-lang.component'
 import {ViewEncapsulation} from "angular2/core";
 import {bootstrap} from "angular2/bootstrap";
-import {TranslatePipe} from "./common/directives/translate-pipe";
 import {ROUTER_PROVIDERS} from "angular2/router";
 import {HTTP_PROVIDERS} from "angular2/http";
 
@@ -20,8 +21,8 @@ const _ = require('lodash');
 import {getLocalUrl} from './common/config';
 import {CORE_DIRECTIVES} from "angular2/common";
 import {DROPDOWN_DIRECTIVES} from "ng2-bootstrap/ng2-bootstrap";
-import {Dojos} from "./dojos/dojos.component";
-
+import {AppState} from "./app.service";
+import {TranslateService, TranslatePipe} from "ng2-translate/ng2-translate";
 
 
 /*
@@ -30,8 +31,7 @@ import {Dojos} from "./dojos/dojos.component";
  */
 @Component({
   selector: 'app',
-  providers: [ ...FORM_PROVIDERS ],
-  directives: [ ...ROUTER_DIRECTIVES, RouterActive, CORE_DIRECTIVES, DROPDOWN_DIRECTIVES ],
+  directives: [ ...ROUTER_DIRECTIVES, RouterActive, CORE_DIRECTIVES, DROPDOWN_DIRECTIVES, ChangeLang ],
   pipes: [TranslatePipe],
   styles: [require('./app.scss')],
   template: require('./app.html'),
@@ -49,7 +49,16 @@ export class App {
   scrolled = false;
   lastScrolledPosition = 0;
   classes = classNames(_.pick(bowser, 'mobile', 'chrome', 'firefox', 'msie', 'msedge', 'android', 'ios', 'safari', 'opera', 'mac', 'windows', 'windowsphone', 'linux', 'chromeos'));
-  constructor(public router: Router) {}
+  constructor(public router: Router, public appState: AppState, translate: TranslateService) {
+    let lang = navigator.language.split('-')[0];
+    lang = /(en|es)/gi.test(lang) ? lang : 'en';
+    translate.setDefaultLang('en');
+    translate.use(lang);
+  }
+
+  ngOnInit() {
+    this.appState.set('lang', 'en_US');
+  }
 
   isActive(instruction: any[]): boolean {
     return this.router.isRouteActive(this.router.generate(instruction));

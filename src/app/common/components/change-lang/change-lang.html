@@ -1,0 +1,11 @@
+<div class="change-lang">
+  <div class="btn-group" dropdown keyboardNav="true">
+    <button id="simple-btn-keyboard-nav" type="button" dropdownToggle>
+      {{currentLang | translate}} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
+      <li role="menuitem" [class.active]="isActive('en_US')"><a class="dropdown-item" (click)="setLang('en_US')">{{'en_US' | translate}}</a></li>
+      <li role="menuitem" [class.active]="isActive('es_US')"><a class="dropdown-item" (click)="setLang('es_US')">{{'es_US' | translate}}</a></li>
+    </ul>
+  </div>
+</div>
